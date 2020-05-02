@@ -10,8 +10,7 @@ class TitleBar @JvmOverloads constructor(
     context: Context?,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) :
-    RelativeLayout(context, attrs, defStyleAttr) {
+) : RelativeLayout(context, attrs, defStyleAttr) {
 
 
 
@@ -20,7 +19,13 @@ class TitleBar @JvmOverloads constructor(
             View.inflate(context, R.layout.layout_title_bar, this)
             var typeArray = context!!.obtainStyledAttributes(attrs, R.styleable.TitleBar)
             var title = typeArray.getString(R.styleable.TitleBar_titleText)
+            if (typeArray.hasValue(R.styleable.TitleBar_titleColor)) {
+                var titleColor = typeArray.getColorStateList(R.styleable.TitleBar_titleColor)
+                tvTitle.setTextColor(titleColor)
+            }
+
             tvTitle.text = title
+
             typeArray.recycle()
         }
 

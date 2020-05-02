@@ -9,6 +9,7 @@
     <declare-styleable name="TitleBar">
 
         <attr name="titleText" format="string|reference" />
+        <attr name="titleColor" format="color|reference" />
     </declare-styleable>
 
 </resources>
