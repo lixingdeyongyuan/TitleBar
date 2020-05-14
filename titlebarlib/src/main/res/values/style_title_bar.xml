@@ -10,6 +10,7 @@
 
         <attr name="titleText" format="string|reference" />
         <attr name="titleColor" format="color|reference" />
+        <attr name="titleSize" format="dimension|reference" />
     </declare-styleable>
 
 </resources>
