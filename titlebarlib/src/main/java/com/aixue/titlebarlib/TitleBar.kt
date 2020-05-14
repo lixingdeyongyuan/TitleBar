@@ -3,6 +3,7 @@ package com.aixue.titlebarlib
 import android.content.Context
 import android.content.res.Resources
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import android.widget.RelativeLayout
 import kotlinx.android.synthetic.main.layout_title_bar.view.*
@@ -34,7 +35,7 @@ class TitleBar @JvmOverloads constructor(
                 tvTitle.setTextColor(titleColor)
             }
             var titleSize = typeArray.getDimension(R.styleable.TitleBar_titleSize, dp2px(16f))
-            tvTitle.textSize = titleSize
+            tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize)
             tvTitle.text = title
 
             typeArray.recycle()
