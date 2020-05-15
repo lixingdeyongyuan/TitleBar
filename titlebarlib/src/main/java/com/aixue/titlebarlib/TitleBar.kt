@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import android.widget.RelativeLayout
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.layout_title_bar.view.*
 
 class TitleBar @JvmOverloads constructor(
@@ -28,6 +29,10 @@ class TitleBar @JvmOverloads constructor(
             var title = typedArray.getString(R.styleable.TitleBar_titleText)
             var titleSize =
                 typedArray.getDimension(R.styleable.TitleBar_titleSize, dip2px(context, 16f))
+            var titleColor = typedArray.getColor(
+                R.styleable.TitleBar_titleColor,
+                ContextCompat.getColor(context, android.R.color.white)
+            );
             var rlTitleWidth = typedArray.getDimension(
                 R.styleable.TitleBar_rlTitle_width,
                 LayoutParams.MATCH_PARENT.toFloat()
@@ -50,6 +55,7 @@ class TitleBar @JvmOverloads constructor(
 
             }
             tvTitle.setText(title)
+            tvTitle.setTextColor(titleColor)
             tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize)
             typedArray.recycle()
         }
