@@ -8,12 +8,15 @@
 
 <com.aixue.titlebarlib.TitleBar
     android:id="@+id/titleBar"
-    app:titleText="haha"
+    app:titleText="hah111a"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     app:titleColor="#ff1122"
     app:titleSize="16sp"
-
+    android:background="@color/colorPrimary"
+    app:rlTitle_height="50dp"
+    app:immersion="true"
+    app:immersionBackground="@mipmap/ic_launcher"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"

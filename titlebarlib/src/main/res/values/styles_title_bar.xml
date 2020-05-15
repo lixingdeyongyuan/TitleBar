@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="TitleBar">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">44dp</item>
-    </style>
     <declare-styleable name="TitleBar">
         <attr name="titleText" format="string|reference" />
         <attr name="titleColor" format="color|reference" />
         <attr name="titleSize" format="dimension|reference" />
         <attr name="immersion" format="boolean" />
+        <attr name="immersionBackground" format="reference|color" />
+        <attr name="rlTitle_width" format="dimension|reference" />
+        <attr name="rlTitle_height" format="dimension|reference" />
     </declare-styleable>
 
 </resources>

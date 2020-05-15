@@ -28,19 +28,32 @@ class TitleBar @JvmOverloads constructor(
             var title = typedArray.getString(R.styleable.TitleBar_titleText)
             var titleSize =
                 typedArray.getDimension(R.styleable.TitleBar_titleSize, dip2px(context, 16f))
+            var rlTitleWidth = typedArray.getDimension(
+                R.styleable.TitleBar_rlTitle_width,
+                LayoutParams.MATCH_PARENT.toFloat()
+            )
+            var rlTitleHeight = typedArray.getDimension(
+                R.styleable.TitleBar_rlTitle_height,
+                LayoutParams.WRAP_CONTENT.toFloat()
+            )
             mView = View.inflate(context, R.layout.layout_title_bar, this)
+            rlTitle.layoutParams.width = rlTitleWidth.toInt()
+            rlTitle.layoutParams.height = rlTitleHeight.toInt()
             immersionView.visibility = if (isImmersion) View.VISIBLE else View.GONE
+            if (isImmersion) {
+                var drawable = typedArray.getDrawable(R.styleable.TitleBar_immersionBackground)
+                if (drawable != null) {
+                    immersionView.background = drawable
+                } else {
+                    immersionView.background = background
+                }
+
+            }
             tvTitle.setText(title)
             tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize)
             typedArray.recycle()
         }
     }
-
-//    fun loadAttributes(attrs: AttributeSet?) {
-//        attrs?.let {
-//
-//        }
-//    }
 
 
 }
