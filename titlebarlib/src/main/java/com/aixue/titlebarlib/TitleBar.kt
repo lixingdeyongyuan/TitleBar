@@ -1,13 +1,11 @@
 package com.aixue.titlebarlib
 
 import android.content.Context
-import android.content.res.Resources
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import android.widget.RelativeLayout
 import kotlinx.android.synthetic.main.layout_title_bar.view.*
-
 
 class TitleBar @JvmOverloads constructor(
     context: Context?,
@@ -15,31 +13,34 @@ class TitleBar @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 
+    private lateinit var mView: View
+
     companion object {
-        /**
-         * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
-         */
-        fun dp2px(dpValue: Float): Float {
-            return 0.5f + dpValue * Resources.getSystem().getDisplayMetrics().density
+        private fun dip2px(context: Context, dp: Float): Float {
+            return dp * context.getResources().getDisplayMetrics().density + 0.5f;
         }
     }
-
 
     init {
         attrs?.let {
-            View.inflate(context, R.layout.layout_title_bar, this)
-            var typeArray = context!!.obtainStyledAttributes(attrs, R.styleable.TitleBar)
-            var title = typeArray.getString(R.styleable.TitleBar_titleText)
-            if (typeArray.hasValue(R.styleable.TitleBar_titleColor)) {
-                var titleColor = typeArray.getColorStateList(R.styleable.TitleBar_titleColor)
-                tvTitle.setTextColor(titleColor)
-            }
-            var titleSize = typeArray.getDimension(R.styleable.TitleBar_titleSize, dp2px(16f))
+            var typedArray = context!!.obtainStyledAttributes(it, R.styleable.TitleBar)
+            var isImmersion = typedArray.getBoolean(R.styleable.TitleBar_immersion, false)
+            var title = typedArray.getString(R.styleable.TitleBar_titleText)
+            var titleSize =
+                typedArray.getDimension(R.styleable.TitleBar_titleSize, dip2px(context, 16f))
+            mView = View.inflate(context, R.layout.layout_title_bar, this)
+            immersionView.visibility = if (isImmersion) View.VISIBLE else View.GONE
+            tvTitle.setText(title)
             tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize)
-            tvTitle.text = title
-
-            typeArray.recycle()
+            typedArray.recycle()
         }
-
     }
+
+//    fun loadAttributes(attrs: AttributeSet?) {
+//        attrs?.let {
+//
+//        }
+//    }
+
+
 }

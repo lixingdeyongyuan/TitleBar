@@ -9,7 +9,8 @@
 <com.aixue.titlebarlib.TitleBar
     android:id="@+id/titleBar"
     app:titleText="haha"
-    style="@style/TitleBar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
     app:titleColor="#ff1122"
     app:titleSize="16sp"
 
