@@ -8,6 +8,9 @@
         <attr name="immersionBackground" format="reference|color" />
         <attr name="rlTitle_width" format="dimension|reference" />
         <attr name="rlTitle_height" format="dimension|reference" />
+        <attr name="titleLeftText" format="string|reference" />
+        <attr name="titleLeftColor" format="color|reference" />
+        <attr name="titleLeftSize" format="dimension|reference" />
     </declare-styleable>
 
 </resources>
