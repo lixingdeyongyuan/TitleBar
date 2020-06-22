@@ -53,6 +53,10 @@ open class TitleBar @JvmOverloads constructor(
                 mView = View.inflate(context, R.layout.layout_title_bar, this)
                 rlTitle.layoutParams.width = rlTitleWidth.toInt()
                 rlTitle.layoutParams.height = rlTitleHeight.toInt()
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    rlTitle.background = background
+                }
+
                 immersionView.visibility = if (isImmersion) View.VISIBLE else View.GONE
                 if (isImmersion) {
                     if (immersionDrawable != null) {
