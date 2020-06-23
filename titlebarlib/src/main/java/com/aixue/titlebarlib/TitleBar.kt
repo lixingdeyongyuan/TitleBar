@@ -51,13 +51,12 @@ open class TitleBar @JvmOverloads constructor(
 
                 //NOTE 初始化基础
                 mView = View.inflate(context, R.layout.layout_title_bar, this)
-//                rlTitle.layoutParams.width = rlTitleWidth.toInt()
-//                rlTitle.layoutParams.height = rlTitleHeight.toInt()
+                rlTitle.layoutParams.width = rlTitleWidth.toInt()
+                rlTitle.layoutParams.height = rlTitleHeight.toInt()
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     rlTitle.background = background
                 }
 
-                immersionView.visibility = if (isImmersion) View.VISIBLE else View.GONE
                 if (isImmersion) {
                     if (immersionDrawable != null) {
                         //NOTE  这里只支持16以上的版本
@@ -80,7 +79,6 @@ open class TitleBar @JvmOverloads constructor(
                 if (typedArray != null) {
                     typedArray.recycle()
                 }
-                Log.d("titlebar","TitleBar. e=${e.toString()}")
             }
         }
     }
