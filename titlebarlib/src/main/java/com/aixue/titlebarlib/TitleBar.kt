@@ -4,12 +4,12 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.os.Build
 import android.util.AttributeSet
+import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.widget.RelativeLayout
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.layout_title_bar.view.*
-import java.lang.Exception
 
 open class TitleBar @JvmOverloads constructor(
     context: Context?,
@@ -51,8 +51,8 @@ open class TitleBar @JvmOverloads constructor(
 
                 //NOTE 初始化基础
                 mView = View.inflate(context, R.layout.layout_title_bar, this)
-                rlTitle.layoutParams.width = rlTitleWidth.toInt()
-                rlTitle.layoutParams.height = rlTitleHeight.toInt()
+//                rlTitle.layoutParams.width = rlTitleWidth.toInt()
+//                rlTitle.layoutParams.height = rlTitleHeight.toInt()
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     rlTitle.background = background
                 }
@@ -80,6 +80,7 @@ open class TitleBar @JvmOverloads constructor(
                 if (typedArray != null) {
                     typedArray.recycle()
                 }
+                Log.d("titlebar","TitleBar. e=${e.toString()}")
             }
         }
     }
