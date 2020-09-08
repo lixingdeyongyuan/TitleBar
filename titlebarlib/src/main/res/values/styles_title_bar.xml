@@ -11,6 +11,9 @@
         <attr name="titleLeftText" format="string|reference" />
         <attr name="titleLeftColor" format="color|reference" />
         <attr name="titleLeftSize" format="dimension|reference" />
+        <attr name="titleRightText" format="string|reference" />
+        <attr name="titleRightColor" format="color|reference" />
+        <attr name="titleRightSize" format="dimension|reference" />
     </declare-styleable>
 
 </resources>

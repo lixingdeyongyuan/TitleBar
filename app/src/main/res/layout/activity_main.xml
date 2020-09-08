@@ -22,6 +22,7 @@
         app:titleLeftText="返回"
         app:titleLeftColor="@color/colorAccent"
         app:titleLeftSize="13sp"
+        app:titleRightText="右按钮"
         app:titleText="hah111a">
 
 
