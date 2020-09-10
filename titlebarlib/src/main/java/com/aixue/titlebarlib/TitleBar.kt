@@ -4,10 +4,10 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.os.Build
 import android.util.AttributeSet
-import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.layout_title_bar.view.*
 
@@ -83,6 +83,27 @@ open class TitleBar @JvmOverloads constructor(
         }
     }
 
+    fun getTitleTv(): TextView {
+        return tvTitle
+    }
+
+
+    fun setTitleColor(color: Int) {
+        tvTitle.setTextColor(color)
+    }
+
+    fun setTitle(text: CharSequence) {
+        tvTitle.setText(text)
+    }
+
+    fun setTitleClickListener(l: OnClickListener) {
+        rlTitle.setOnClickListener(l)
+    }
+
+    fun setTitleListener(text: CharSequence, l: OnClickListener) {
+        setTitle(text)
+        setTitleClickListener(l)
+    }
 
     open fun initView(typedArray: TypedArray?) {
 
